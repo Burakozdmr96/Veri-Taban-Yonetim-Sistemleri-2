@@ -1,0 +1,240 @@
+SET SCHEMA 'public';
+ 
+/* SQLINES DEMO *** le [dbo].[AddedMails]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE AddedMails(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Mail Text NULL,
+ CONSTRAINT PK_AddedMails PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[AdminUsers]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE AdminUsers(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	UserName Text NULL,
+	Password Text NULL,
+ CONSTRAINT PK_AdminUsers PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[Categories]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE Categories(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Name Text NULL,
+	Image Text NULL,
+ CONSTRAINT PK_Categories PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[Images]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE Images(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Image Text NULL,
+	ProductID Text NULL,
+ CONSTRAINT PK_Images PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[Language]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE Language(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Value Text NULL,
+	AR Text NULL,
+	EN Text NULL,
+ CONSTRAINT PK_Language PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[Map]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE Map(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Map Text NULL,
+ CONSTRAINT PK_Map PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[NewMails]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE NewMails(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Mail Text NULL,
+ CONSTRAINT PK_NewMails PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[Partners]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE Partners(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Image Text NULL,
+ CONSTRAINT PK_Partners PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[Products]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE Products(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Title Text NULL,
+	Description Text NULL,
+	CategoryID Text NULL,
+	SubID Text NULL,
+	Image Text NULL,
+ CONSTRAINT PK_Product PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[Silder]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE Silder(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Title Text NULL,
+	Description Text NULL,
+	Image Text NULL,
+	URL Text NULL,
+ CONSTRAINT PK_Silder PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[Social]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE Social(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Facebook Text NULL,
+	Twitter Text NULL,
+	Instagram Text NULL,
+	Youtube Text NULL,
+	Google Text NULL,
+ CONSTRAINT PK_Social PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SQLINES DEMO *** le [dbo].[SubCategory]    Script Date: 8/23/2022 10:32:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+/* SET QUOTED_IDENTIFIER ON */
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE SubCategory(
+	ID int GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) NOT NULL,
+	Name Text NULL,
+	CategoryID Text NULL,
+ CONSTRAINT PK_SubCategory PRIMARY KEY 
+(
+	ID 
+) 
+);
+/* SET IDENTITY_INSERT [dbo].[AdminUsers] ON */ 
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+INSERT AdminUsers (ID, UserName, Password) VALUES (1, 'mohammad', '123');
+ 
+/* SET IDENTITY_INSERT [dbo].[AdminUsers] OFF */
+ 
+/* SET IDENTITY_INSERT [dbo].[Map] ON */ 
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+INSERT Map (ID, Map) VALUES (1, 'aaaa');
+ 
+/* SET IDENTITY_INSERT [dbo].[Map] OFF */
+ 
+/* SET IDENTITY_INSERT [dbo].[Social] ON */ 
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+INSERT Social (ID, Facebook, Twitter, Instagram, Youtube, Google) VALUES (1, 'a', 'a', 'NULLa', 'a', 'a');
+ 
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+INSERT Social (ID, Facebook, Twitter, Instagram, Youtube, Google) VALUES (2, NULL, NULL, NULL, NULL, 'a');
+ 
+/* SET IDENTITY_INSERT [dbo].[Social] OFF */
+ 
+
+insert INTO  map  (map) values ('2');
+
+insert INTO social (facebook) values ('a');
+
+insert INTO adminusers (username ,password) values ('burak','123456');
+
+/* triger */
+CREATE OR REPLACE FUNCTION test()
+  RETURNS trigger AS
+$$
+BEGIN
+         INSERT INTO adminusers(col1,col2,col3)
+         VALUES(NEW.col1,NEW.col2,NEW.col3);
+ 
+    RETURN NEW;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER test_trigger
+  AFTER INSERT
+  ON adminusers
+  FOR EACH ROW
+  EXECUTE PROCEDURE test();
+
+/* end triger */
+
+

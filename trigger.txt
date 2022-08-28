@@ -1,0 +1,45 @@
+CREATE OR REPLACE FUNCTION partners()
+  RETURNS trigger AS
+$$
+BEGIN
+         INSERT INTO partners(col1,col2)
+         VALUES(NEW.col1,NEW.col2,NEW.col3);
+ 
+    RETURN NEW;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION products()
+  RETURNS trigger AS
+$$
+BEGIN
+         INSERT INTO products(col1,col2,col3)
+         VALUES(NEW.col1,NEW.col2,NEW.col3);
+ 
+    RETURN NEW;
+END;
+$$
+LANGUAGE 'plpgsql';
+CREATE OR REPLACE FUNCTION createcategoyr()
+  RETURNS trigger AS
+$$
+BEGIN
+         INSERT INTO categories(col1,col2)
+         VALUES(NEW.col1,NEW.col2);
+ 
+    RETURN NEW;
+END;
+$$
+LANGUAGE 'plpgsql';
+CREATE OR REPLACE FUNCTION test()
+  RETURNS trigger AS
+$$
+BEGIN
+         INSERT INTO adminusers(col1,col2,col3)
+         VALUES(NEW.col1,NEW.col2,NEW.col3);
+ 
+    RETURN NEW;
+END;
+$$
+LANGUAGE 'plpgsql';

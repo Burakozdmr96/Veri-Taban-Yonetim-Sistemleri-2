@@ -1,0 +1,183 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="tema.master.cs" Inherits="Masra_Group.tema" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head runat="server">
+	<!-- Basic need -->
+	<title>Masra Group</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Masra Group the official web site">
+      <link rel="shortcut icon" type="image/x-icon" href="images/uploads/logo.png">
+	<meta name="keywords" content="Masra Group turizim سياحة عقار اسطنبول استنبول ">
+	<meta name="author" content="">
+	<link rel="profile" href="">
+	<!-- <link rel="shortcut icon" href="images/favicon.ico"> -->
+
+	<!-- Mobile specific meta -->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone-no">
+
+	<!-- External Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway:400,700,800|Roboto:400,500,700" rel="stylesheet"> 
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="css1/plugins.css">
+	<link rel="stylesheet" href="css1/style.css">
+	<link rel="stylesheet" href="css1/animate.css">
+</head>
+    
+
+    <body runat="server">
+
+
+        <header  class="header header--blue header--top">
+ <div class="container">
+    <div class="header__main">
+      <div class="header__logo">
+        <a href="default.aspx" >
+          <h1 class="screen-reader-text"><%=Masra_Group.Language.getText("بوابتك لخدمات متكاملة وحلول استثمارية ذكية.") %></h1>
+          <img src="images/uploads/logo.png" alt="Masra Group">
+        
+        </a>
+      </div><!-- .header__logo -->
+
+      <div class="nav-mobile">
+        <a href="#" class="nav-toggle">
+          <span></span>
+        </a><!-- .nav-toggle -->
+      </div><!-- .nav-mobile -->
+
+      <div class="header__menu header__menu--v6"   <% if(Session["Language"].ToString()=="AR"){ %> dir="rtl"<% }%> >
+        <ul class="header__nav">
+          <li class="header__nav-item">
+            <a href="default.aspx"  style=" font-weight: bold;" class="header__nav-link  "><%=Masra_Group.Language.getText("Home") %></a></li>
+      <%for (int i = 0; i < tblgetcategory.Rows.Count; i++)
+          {
+
+           %>
+            <li class="header__nav-item " dir="rtl">
+       
+           <a href="products.aspx?cid=<%=tblgetcategory.Rows[i]["ID"]%>" class="header__nav-link header__nav-link--v2  " style=" font-weight: bold;"   >
+                <%=Masra_Group.Language.getText(tblgetcategory.Rows[i]["Name"].ToString()) %>  </a>
+             
+              <ul>
+           <%=tblgetSubcategory = Masra_Group.Functions.GetSubCategoryOrderByCategory(tblgetcategory.Rows[i]["ID"].ToString()) %>
+              <% if(tblgetSubcategory != null && tblgetSubcategory.Rows.Count>0) {%>
+                  <% for(int k = 0; k < tblgetSubcategory.Rows.Count; k++) {%> 
+                 
+              <li><a  style=" font-weight: bold;" href="products.aspx?sub=<%=tblgetSubcategory.Rows[k]["ID"] %>"><%=Masra_Group.Language.getText(tblgetSubcategory.Rows[k]["Name"].ToString()) %></a></li>
+            <%} } %>
+              </ul>
+          </li>
+            <%} %>
+
+            <li class="header__nav-item">
+            <a href="about.aspx"  style=" font-weight: bold;" class="header__nav-link header__nav-link--v2"><%=Masra_Group.Language.getText("حول  مجموعة المسرى") %></a>
+                </li>
+    
+        </ul><!-- .header__nav -->
+
+        <ul class="topbar__user topbar__user--uppercase" style="left:5px;right:5px;">
+          <li><a href="default.aspx?Lang=AR" class="topbar__link topbar__link--white"  style=" font-weight: bold;" >AR</a></li>
+          <li><a href="default.aspx?Lang=EN" class="topbar__link topbar__link--white"  style=" font-weight: bold;">EN</a></li>
+        </ul>
+
+      </div><!-- .header__menu -->
+
+      <a  ></a>
+    </div><!-- .header__main -->
+  </div><!-- .container -->
+        </header>
+
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+
+
+<footer class="footer">
+	<div class="footer__main footer__main--v2">
+		<div class="container"  <%if(Session["Language"].ToString()=="AR"){ %> dir="rtl"<% } %>>
+            <div class="row">
+
+               <div class="col-md-4">
+ <iframe src="<%=tblmap.Rows[0]["Map"] %>"" height="200px" width="100%"  frameborder="0" style="border:0" allowfullscreen></iframe>
+
+ </div>
+		
+ 	<div class="footer__logo col-sm-4 col-md-4">
+         <br /> 
+				<h1 class="screen-reader-text">Masra Group</h1>
+				<img src="images/Masra logo  footer.jpeg" height="170px" style=" border-radius: 10px;" width="170px" alt="Masra Group">
+			</div><!-- .footer__logo -->
+			  
+ <div class="col-sm-4 col-md-4 footer__links-single">
+						<h3 style="color:aliceblue;"><%=Masra_Group.Language.getText("Contact Us") %></h3>
+				<br />		<ul class="footer__list" >
+							<li><span  style="color:aliceblue;"><%=Masra_Group.Language.getText("Address") %>  </span> <a href="#"> <%=Masra_Group.Language.getText("Istanbul, Turkey") %></a></li>
+							<li><span style="color:aliceblue;"><%=Masra_Group.Language.getText("Email") %>  </span> <a href="mailto:info@masragroup.com">info@masragroup.com</a></li>
+							<li><span style="color:aliceblue;"><%=Masra_Group.Language.getText("Phone") %>  </span> <a href="tel:+902125962830"><%=Masra_Group.Language.getText("+902125962830") %> </a></li>
+							<li><span style="color:aliceblue;"><%=Masra_Group.Language.getText("Mobile") %>  </span> <a href="https://api.whatsapp.com/send?phone=905367006691"><%=Masra_Group.Language.getText("+905367006691") %> </a></li>
+						</ul><!-- .footer__list -->
+
+            </div><!-- .col -->
+        				  
+       </div>     
+    <br />
+              	<ul class="footer__social">
+				<li><a href="<%=tblSocial.Rows[0]["Facebook"] %>"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+				<li><a href="<%=tblSocial.Rows[0]["Twitter"] %>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href="<%=tblSocial.Rows[0]["Google"] %>"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+				<li><a href="<%=tblSocial.Rows[0]["Instagram"] %>"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+				<li><a href="<%=tblSocial.Rows[0]["Youtube"] %>"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+			</ul><!-- .footer__social -->
+
+
+
+
+
+		
+		</div>
+ 
+	</div><!-- .footer__main -->
+
+	<div class="footer__copyright footer__copyright--v2">
+	
+        	
+        
+        
+        
+        <br />
+ 
+            <!-- .partners -->
+
+        
+
+
+
+        
+        <div class="container">
+				<div class="footer__copyright-inner " >
+			<p class="footer__copyright-desc"> &copy; 2018 <span class="footer--highlighted-v2">Masra Group</span> All Right Reserved.</p>
+			
+			</div><!-- .footer__copyright-inner -->	
+		</div><!-- .container -->
+	</div><!-- .footer__copyright -->
+</footer>
+        <!-- .footer -->
+
+
+     
+<script src="js1/jquery-1.12.4.min.js"></script>
+<script src="js1/plugins.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyCxHyc8z9gMA5IlipXpt0c33Ajzqix4"></script>
+<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
+<script src="js1/custom.js"></script>
+</body>
+</html>
